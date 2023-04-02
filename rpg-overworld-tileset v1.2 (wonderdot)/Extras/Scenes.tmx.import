@@ -1,0 +1,18 @@
+[remap]
+
+importer="YATI"
+type="Node2D"
+uid="uid://b4eleu4u83m30"
+path="res://.godot/imported/Scenes.tmx-b1793719dfb20fb081419f8abf3726bd.tscn"
+
+[deps]
+
+source_file="res://rpg-overworld-tileset v1.2 (wonderdot)/Extras/Scenes.tmx"
+dest_files=["res://.godot/imported/Scenes.tmx-b1793719dfb20fb081419f8abf3726bd.tscn"]
+
+[params]
+
+use_tilemap_layers=false
+use_default_filter=false
+post_processor=""
+save_tileset_to=""

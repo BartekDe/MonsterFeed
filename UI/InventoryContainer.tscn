@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgenuemlujvvs"]
+
+[ext_resource type="PackedScene" uid="uid://huxc77uk14ki" path="res://Items/InventoryGridDisplay.tscn" id="1_83pog"]
+
+[node name="InventoryContainer" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.298039, 0.294118, 0.552941, 0.501961)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryGridDisplay" parent="CenterContainer" instance=ExtResource("1_83pog")]
+layout_mode = 2

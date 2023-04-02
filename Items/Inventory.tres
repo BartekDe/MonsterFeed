@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=3 format=3 uid="uid://dl0i7w6cl21p0"]
+
+[ext_resource type="Resource" uid="uid://bp6drqlyj2ud0" path="res://Items/HealthPotion.tres" id="1_gfcy5"]
+[ext_resource type="Script" path="res://Inventory.gd" id="1_vonla"]
+
+[resource]
+script = ExtResource("1_vonla")
+items = [ExtResource("1_gfcy5"), ExtResource("1_gfcy5"), null, null, null, null]

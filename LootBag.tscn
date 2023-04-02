@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgykmgqtiv6j2"]
+
+[ext_resource type="Script" path="res://LootBag.gd" id="1_4tc6k"]
+[ext_resource type="Texture2D" uid="uid://cw7hqwehrts8l" path="res://Loot-bag.png" id="2_tg041"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_400dt"]
+radius = 7.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_4dq7e"]
+font_color = Color(0.807843, 1, 1, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_offset = Vector2(0, 0)
+
+[node name="LootBag" type="Area2D"]
+script = ExtResource("1_4tc6k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_tg041")
+centered = false
+
+[node name="Contents" type="Node" parent="."]
+
+[node name="ClickableShape" type="CollisionShape2D" parent="."]
+position = Vector2(7, 7)
+shape = SubResource("CircleShape2D_400dt")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -3.0
+offset_top = 14.0
+offset_right = 64.0
+offset_bottom = 40.0
+grow_horizontal = 2
+scale = Vector2(0.3, 0.3)
+
+[node name="Label" type="Label" parent="CenterContainer"]
+layout_mode = 2
+text = "Loot bag"
+label_settings = SubResource("LabelSettings_4dq7e")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

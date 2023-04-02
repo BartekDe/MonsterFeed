@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="ExperienceLevel" load_steps=2 format=3 uid="uid://ddaufh1njp46i"]
+
+[ext_resource type="Script" path="res://Player/ExperienceLevel.gd" id="1_xwf2p"]
+
+[resource]
+script = ExtResource("1_xwf2p")

@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=3 uid="uid://c61s8rb65fna7"]
+
+[ext_resource type="Script" path="res://Weapons/WeaponMelee.gd" id="1_4fkov"]
+[ext_resource type="Texture2D" uid="uid://dagx7pqni6di6" path="res://Weapons/Sword-basic.png" id="1_utqvv"]
+[ext_resource type="PackedScene" uid="uid://cfub0uwlg53l7" path="res://Hitboxes/Hitbox.tscn" id="2_485d4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_odvbr"]
+radius = 2.0
+height = 18.3848
+
+[sub_resource type="Animation" id="Animation_il13r"]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwingPivot/Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 2, 1, 1),
+"update": 0,
+"values": [0.0, -0.785398, 2.35619, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8fkyo"]
+resource_name = "swing_melee_weapon"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SwingPivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.6),
+"transitions": PackedFloat32Array(2, 1, 1, 1),
+"update": 0,
+"values": [0.785398, -0.523599, 1.5708, 0.785398]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gwvvw"]
+_data = {
+"RESET": SubResource("Animation_il13r"),
+"swing_melee_weapon": SubResource("Animation_8fkyo")
+}
+
+[node name="WeaponMelee" type="Area2D"]
+script = ExtResource("1_4fkov")
+
+[node name="SwingPivot" type="Marker2D" parent="."]
+rotation = 0.785398
+
+[node name="Sprite2D" type="Sprite2D" parent="SwingPivot"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_utqvv")
+offset = Vector2(15, -15)
+
+[node name="Hitbox" parent="SwingPivot/Sprite2D" instance=ExtResource("2_485d4")]
+position = Vector2(-1.75282, -30.4126)
+scale = Vector2(2, 2)
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="SwingPivot/Sprite2D/Hitbox" index="0"]
+position = Vector2(9, 6)
+rotation = 0.785398
+shape = SubResource("CapsuleShape2D_odvbr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gwvvw")
+}
+
+[editable path="SwingPivot/Sprite2D/Hitbox"]
