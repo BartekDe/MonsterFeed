@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce7ulp6l5wjr8"]
+
+[sub_resource type="GDScript" id="GDScript_hjvml"]
+script/source = "extends Node
+
+@export var slots = 6
+
+var inventory = Array()
+
+const EMPTY_VALUE = 'EMPTY'
+
+signal slot_changed
+
+func _ready():
+	for i in range(slots):
+		inventory.append(EMPTY_VALUE)
+		
+func _process(delta):
+	if Input.is_action_just_pressed(\"open_inventory\"):
+		print(inventory)
+
+func add_item_to_inventory(item):
+	print(\"adding \" + item)
+	var placed_successfully = false
+	for i in range(slots):
+		if inventory[i] == EMPTY_VALUE && !placed_successfully:
+			inventory[i] = item
+			slot_changed.emit(i, item)
+			placed_successfully = true
+	if !placed_successfully:
+		print(\"inventory full\")
+"
+
+[node name="PlayerInventory" type="Node"]
+script = SubResource("GDScript_hjvml")

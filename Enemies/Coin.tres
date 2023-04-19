@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Coin" load_steps=3 format=3 uid="uid://qrvc2g6tefho"]
+
+[ext_resource type="Script" path="res://Enemies/Coin.gd" id="1_71kfr"]
+[ext_resource type="Texture2D" uid="uid://colm5t7t8hctn" path="res://Enemies/coin.png" id="2_doknr"]
+
+[resource]
+script = ExtResource("1_71kfr")
+coin_value = 1
+sprite = ExtResource("2_doknr")
