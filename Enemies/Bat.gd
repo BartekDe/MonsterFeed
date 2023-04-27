@@ -9,6 +9,8 @@ extends CharacterBody2D
 
 @export var EXPERIENCE_AMOUNT = 2
 
+@export var LOOT_CHANCE_HEALTH_POTION: float = .2
+
 var knockback = Vector2.ZERO
 
 @onready var stats = $Stats
@@ -31,27 +33,27 @@ var state = IDLE
 
 func _physics_process(delta):
 	match state:
-#		IDLE:
-#			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-#			seek_player()
-#			wander_or_idle()
-#
-#		WANDER:
-#			seek_player()
-#			wander_or_idle()
-#
-#			var direction = global_position.direction_to(wander_controller.target_position)
-#			velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
-#			if global_position.distance_to(wander_controller.target_position) < wander_controller.tolerance:
-#				velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-#
-#		CHASE:
-#			var player = player_detection_zone.player
-#			if player != null:
-#				var chase_direction = global_position.direction_to(player.global_position).normalized()
-#				velocity = velocity.move_toward(chase_direction * MAX_SPEED, ACCELERATION * delta)
-#			else:
-#				state = IDLE
+		IDLE:
+			velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+			seek_player()
+			wander_or_idle()
+
+		WANDER:
+			seek_player()
+			wander_or_idle()
+
+			var direction = global_position.direction_to(wander_controller.target_position)
+			velocity = velocity.move_toward(direction * MAX_SPEED, ACCELERATION * delta)
+			if global_position.distance_to(wander_controller.target_position) < wander_controller.tolerance:
+				velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+
+		CHASE:
+			var player = player_detection_zone.player
+			if player != null:
+				var chase_direction = global_position.direction_to(player.global_position).normalized()
+				velocity = velocity.move_toward(chase_direction * MAX_SPEED, ACCELERATION * delta)
+			else:
+				state = IDLE
 		KNOCKBACK:
 			if knockback != Vector2.ZERO:
 				knockback = knockback.move_toward(Vector2.ZERO, KNOCKBACK_FRICTION * delta)
@@ -80,7 +82,8 @@ func _on_hurtbox_area_entered(area: Area2D):
 	state = KNOCKBACK
 	var damage = area.damage
 	self.stats.inflict_damage(damage)
-	var knockback_direction = (self.position - area.owner.position).normalized()
+	var knockback_direction = (self.global_position - area.owner.global_position).normalized()
+	print(knockback_direction)
 	knockback = knockback_direction * KNOCKBACK_FORCE
 
 func _on_stats_no_health():
@@ -89,7 +92,7 @@ func _on_stats_no_health():
 	enemy_death_effect.position = self.position
 	
 	Events.grant_experience.emit(EXPERIENCE_AMOUNT)
-	if (randf() <= .2):
+	if (randf() <= LOOT_CHANCE_HEALTH_POTION):
 		Events.drop_loot.emit(HealthPotionResource, global_position)
 	drop_coins_component.drop_coins()
 	queue_free()

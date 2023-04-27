@@ -1,0 +1,120 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfhxxqhs3orbb"]
+
+[ext_resource type="Script" path="res://UI/GoToWorldButton.gd" id="1_0sb5n"]
+[ext_resource type="Texture2D" uid="uid://brs55dxw2k86f" path="res://Scenes/1PRqOH158xOkca-gjeBy.jpeg" id="1_655c2"]
+[ext_resource type="Script" path="res://UI/OpenGridButton.gd" id="3_1q1bb"]
+
+[node name="TownScene" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(147, 88)
+scale = Vector2(0.20214, 0.20214)
+texture = ExtResource("1_655c2")
+
+[node name="TownUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="ColorRect" type="ColorRect" parent="TownUI"]
+layout_mode = 0
+offset_right = 320.0
+offset_bottom = 20.0
+color = Color(0.0235294, 0.188235, 0.164706, 0.686275)
+
+[node name="GoToTownButton" type="Button" parent="TownUI"]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 6.0
+offset_right = 424.0
+offset_bottom = 37.0
+scale = Vector2(0.24, 0.24)
+text = "Go into the world"
+script = ExtResource("1_0sb5n")
+
+[node name="OpenGridButton" type="Button" parent="TownUI"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -17.0
+offset_top = 6.0
+offset_right = 126.0
+offset_bottom = 37.0
+grow_horizontal = 2
+scale = Vector2(0.24, 0.24)
+text = "Resource grid"
+script = ExtResource("3_1q1bb")
+
+[node name="GridContainer" type="GridContainer" parent="TownUI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -153.0
+offset_right = 65.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 0
+columns = 3
+
+[node name="ColorRect" type="ColorRect" parent="TownUI/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.290196, 0.262745, 0.219608, 0.929412)
+
+[node name="ColorRect2" type="ColorRect" parent="TownUI/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.290196, 0.262745, 0.219608, 0.929412)
+
+[node name="ColorRect3" type="ColorRect" parent="TownUI/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.290196, 0.262745, 0.219608, 0.929412)
+
+[node name="ColorRect4" type="ColorRect" parent="TownUI/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.290196, 0.262745, 0.219608, 0.929412)
+
+[node name="ColorRect5" type="ColorRect" parent="TownUI/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.290196, 0.262745, 0.219608, 0.929412)
+
+[node name="ColorRect6" type="ColorRect" parent="TownUI/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.290196, 0.262745, 0.219608, 0.929412)
+
+[node name="ColorRect7" type="ColorRect" parent="TownUI/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.290196, 0.262745, 0.219608, 0.929412)
+
+[node name="ColorRect8" type="ColorRect" parent="TownUI/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.290196, 0.262745, 0.219608, 0.929412)
+
+[node name="ColorRect9" type="ColorRect" parent="TownUI/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.290196, 0.262745, 0.219608, 0.929412)
+
+[connection signal="pressed" from="TownUI/GoToTownButton" to="TownUI/GoToTownButton" method="_on_pressed"]
+[connection signal="pressed" from="TownUI/OpenGridButton" to="TownUI/OpenGridButton" method="_on_pressed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://byouiyiknpsgk"]
+[gd_scene load_steps=18 format=3 uid="uid://byouiyiknpsgk"]
 
 [ext_resource type="Script" path="res://RangedEnemy.gd" id="1_dpvre"]
 [ext_resource type="Texture2D" uid="uid://bwngew8eguc8l" path="res://Enemies/birds2.png" id="2_vtjwy"]
+[ext_resource type="Texture2D" uid="uid://rn77ke2q37o4" path="res://Shadows/SmallShadow.png" id="3_s7fsf"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gn6f5"]
 animation = &"move_down"
@@ -152,5 +153,9 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_vtjwy")
 hframes = 12
 vframes = 8
+
+[node name="SmallShadow" type="Sprite2D" parent="."]
+position = Vector2(0, 17)
+texture = ExtResource("3_s7fsf")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -2,12 +2,10 @@ extends CharacterBody2D
 
 var experience_level: ExperienceLevel = preload("res://Player/ExperienceLevel.tres")
 
-@export var coin_storage: CoinStorage
-
 const MAX_SPEED = 100
 const ROLL_SPEED = MAX_SPEED * 1.2
-const ACCELERATION = 600
-const FRICTION = 600
+const ACCELERATION = 900
+const FRICTION = 900
 
 enum {
 	MOVE,

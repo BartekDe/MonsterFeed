@@ -1,7 +1,7 @@
 extends Node2D
 
-var wander_range: int = 15
-var tolerance: int = 2
+@export var wander_range: int = 15
+@export var tolerance: int = 2
 
 @onready var initial_position: Vector2 = self.global_position
 @onready var target_position: Vector2 = self.global_position

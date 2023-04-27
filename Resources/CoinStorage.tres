@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://bwt5co2x7gl"]
+[gd_resource type="Resource" script_class="CoinStorage" load_steps=2 format=3 uid="uid://bwt5co2x7gl"]
 
-[sub_resource type="GDScript" id="GDScript_r0tom"]
+[ext_resource type="Script" path="res://Resources/CoinStorage.gd" id="1_p0073"]
 
 [resource]
-script = SubResource("GDScript_r0tom")
+resource_name = "CoinStorage"
+script = ExtResource("1_p0073")

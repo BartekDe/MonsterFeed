@@ -13,4 +13,5 @@ func play_idle_anim():
 func _on_body_entered(body):
 	if body.is_in_group("Player"):
 		Events.coin_picked_up.emit(coin_resource.coin_value)
+		print("coins picked up")
 		queue_free()

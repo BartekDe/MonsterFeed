@@ -8,3 +8,5 @@ signal item_picked_up(item: Item)
 signal inventory_full
 signal coin_picked_up(coin_value: int)
 signal update_coins_ui(current_coins: int)
+signal switch_scene(path: String)
+signal player_entered_town_portal

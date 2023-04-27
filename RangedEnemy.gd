@@ -18,7 +18,7 @@ enum {
 }
 
 func _ready():
-	target_marker = get_node("/root/Node2D/Marker2D")
+	target_marker = get_node("/root/World/Marker2D")
 	target_position = target_marker.global_position
 	timer.start(1)
 
@@ -40,7 +40,7 @@ func handle_idle(delta: float) -> void:
 func handle_movement(delta: float) -> void:
 	if global_position.distance_to(target_position) < target_tolerance:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
-		if velocity.distance_to(Vector2.ONE) < 5:
+		if velocity.distance_to(Vector2.ONE) < 10:
 			state = IDLE
 	
 	var direction = global_position.direction_to(target_position)
